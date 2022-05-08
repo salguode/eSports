@@ -14,7 +14,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="Jogador"
+            tools:text="Jogado"
             />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
