@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface PlayersEndpoint {
 
-    @GET("Players")
-    fun getPlayers(): Call<List<Players>>
+    @GET("players")
+    fun getPlayers(): Call<List<Player>>
 }

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.douglas.esports.databinding.ItemPlayersListBinding
 
 
-class PlayersListAdapter : ListAdapter<Players, PlayersListAdapter.PlayersViewHolder>(PlayersListAdapter) {
+class PlayersListAdapter : ListAdapter<Player, PlayersListAdapter.PlayersViewHolder>(PlayersListAdapter) {
 
 
 
@@ -16,7 +16,7 @@ class PlayersListAdapter : ListAdapter<Players, PlayersListAdapter.PlayersViewHo
         private var  binding: ItemPlayersListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(player: Players){
+        fun bind(player: Player){
             binding.txtPlayer.text = player.name
 
         }
@@ -33,14 +33,14 @@ class PlayersListAdapter : ListAdapter<Players, PlayersListAdapter.PlayersViewHo
         holder.bind(team)
     }
 
-    private companion object: DiffUtil.ItemCallback<Players>(){
+    private companion object: DiffUtil.ItemCallback<Player>(){
 
-        override fun areItemsTheSame(oldItem: Players, newItem: Players): Boolean {
+        override fun areItemsTheSame(oldItem: Player, newItem: Player): Boolean {
             return  oldItem.id == newItem.id
 
         }
 
-        override fun areContentsTheSame(oldItem: Players, newItem: Players): Boolean {
+        override fun areContentsTheSame(oldItem: Player, newItem: Player): Boolean {
             return  oldItem == newItem
         }
 

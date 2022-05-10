@@ -2,7 +2,7 @@ package br.com.douglas.esports
 
 import com.google.gson.annotations.SerializedName
 
-data class Players(
+data class Player(
     @SerializedName("playerName")
     val name: String,
     @SerializedName("teamId")
