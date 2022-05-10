@@ -14,8 +14,8 @@ class PlayersListFragment : Fragment() {
     private lateinit var adapter: PlayersListAdapter
 
    val players = listOf(
-       Player("123", "Fer"),
-       Player("456", "Fallen")
+       Players("123", "Fer"),
+       Players("456", "Fallen")
    )
 
     override fun onCreate(savedInstanceState: Bundle?) {

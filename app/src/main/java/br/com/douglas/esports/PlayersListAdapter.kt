@@ -1,16 +1,14 @@
 package br.com.douglas.esports
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import br.com.douglas.esports.databinding.FragmentPlayersListBinding
 import br.com.douglas.esports.databinding.ItemPlayersListBinding
 
 
-class PlayersListAdapter : ListAdapter<Player, PlayersListAdapter.PlayersViewHolder>(PlayersListAdapter) {
+class PlayersListAdapter : ListAdapter<Players, PlayersListAdapter.PlayersViewHolder>(PlayersListAdapter) {
 
 
 
@@ -18,7 +16,7 @@ class PlayersListAdapter : ListAdapter<Player, PlayersListAdapter.PlayersViewHol
         private var  binding: ItemPlayersListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(player: Player){
+        fun bind(player: Players){
             binding.txtPlayer.text = player.name
 
         }
@@ -35,14 +33,14 @@ class PlayersListAdapter : ListAdapter<Player, PlayersListAdapter.PlayersViewHol
         holder.bind(team)
     }
 
-    private companion object: DiffUtil.ItemCallback<Player>(){
+    private companion object: DiffUtil.ItemCallback<Players>(){
 
-        override fun areItemsTheSame(oldItem: Player, newItem: Player): Boolean {
+        override fun areItemsTheSame(oldItem: Players, newItem: Players): Boolean {
             return  oldItem.id == newItem.id
 
         }
 
-        override fun areContentsTheSame(oldItem: Player, newItem: Player): Boolean {
+        override fun areContentsTheSame(oldItem: Players, newItem: Players): Boolean {
             return  oldItem == newItem
         }
 
