@@ -15,27 +15,18 @@
         tools:listitem="@layout/item_players_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/edtPlayer"
+        app:layout_constraintBottom_toTopOf="@id/btnAdicionarPlayer"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <EditText
-        android:id="@+id/edtPlayer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Jogador"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnAdicionarPlayer"
-        app:layout_constraintStart_toStartOf="parent"
-        />
 
     <Button
         android:id="@+id/btnAdicionarPlayer"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="ADICIONAR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/edtPlayer"
+        app:layout_constraintStart_toStartOf="parent"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
