@@ -9,5 +9,13 @@
         android:id="@+id/playersListFragment"
         android:name="br.com.douglas.esports.PlayersListFragment"
         android:label="fragment_players_list"
-        tools:layout="@layout/fragment_players_list" />
+        tools:layout="@layout/fragment_players_list" >
+        <action
+            android:id="@+id/goToPlayerBottomSheet"
+            app:destination="@id/playerBottomSheet" />
+    </fragment>
+    <dialog
+        android:id="@+id/playerBottomSheet"
+        android:name="br.com.douglas.esports.PlayerBottomSheet"
+        android:label="PlayerBottomSheet" />
 </navigation>

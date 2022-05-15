@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import br.com.douglas.esports.databinding.FragmentPlayersListBinding
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,16 +18,10 @@ class PlayersListFragment : Fragment() {
     private lateinit var binding: FragmentPlayersListBinding
     private lateinit var adapter: PlayersListAdapter
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentPlayersListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -39,9 +34,13 @@ class PlayersListFragment : Fragment() {
 
         getData()
 
+        binding.btnAdicionarPlayer.setOnClickListener {
+            findNavController().navigate(R.id.goToPlayerBottomSheet)
+        }
+
     }
 
-    fun getData() {
+    private fun getData() {
         val retrofitClient = NetworkUtils
             .getRetrofitInstance()
 
@@ -55,12 +54,10 @@ class PlayersListFragment : Fragment() {
             }
 
             override fun onResponse(call: Call<List<Player>>, response: Response<List<Player>>) {
-
-                var playerList = response.body()
+                val playerList = response.body()
                 adapter.submitList(playerList)
             }
         })
-
     }
 
 }
