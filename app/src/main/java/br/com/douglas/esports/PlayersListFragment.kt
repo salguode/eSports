@@ -32,9 +32,14 @@ class PlayersListFragment : Fragment() {
         adapter = PlayersListAdapter()
         binding.rvPlayerslist.adapter = adapter
 
+
+
         getData()
 
         binding.btnAdicionarPlayer.setOnClickListener {
+            getNavigationResult()?.observe(viewLifecycleOwner){
+                getData()
+            }
             findNavController().navigate(R.id.goToPlayerBottomSheet)
         }
 
