@@ -6,5 +6,5 @@ data class Player(
     @SerializedName("playerName")
     val name: String,
     @SerializedName("teamId")
-    val id: String,
+    val id: String? = null
 )
