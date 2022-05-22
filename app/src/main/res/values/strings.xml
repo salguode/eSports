@@ -7,4 +7,6 @@
     <string name="player_update_button">Atualizar</string>
     <string name="player_delete_botton_sheet_button_text">Delete</string>
     <string name="player_add_bottom_sheet_text">ADICIONAR</string>
+    <string name="player_button">Jogadores</string>
+    <string name="team_button">Times</string>
 </resources>
