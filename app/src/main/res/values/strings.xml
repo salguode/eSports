@@ -5,4 +5,5 @@
     <string name="player_bottom_sheet_button">Adicionar</string>
     <string name="player_add_hint">jogador</string>
     <string name="player_edit_botton_sheet_button_text">Editar</string>
+    <string name="player_update_button">Atualizar</string>
 </resources>

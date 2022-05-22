@@ -21,7 +21,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Atualizar"
+        android:text="@string/player_update_button"
         app:rippleColor="@color/design_default_color_on_primary"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         app:backgroundTint="@color/design_default_color_primary"

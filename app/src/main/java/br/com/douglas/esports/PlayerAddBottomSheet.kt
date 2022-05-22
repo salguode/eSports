@@ -5,22 +5,22 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import br.com.douglas.esports.databinding.PlayerBottomSheetBinding
+import br.com.douglas.esports.databinding.PlayerAddBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PlayerBottomSheet : BottomSheetDialogFragment() {
+class PlayerAddBottomSheet : BottomSheetDialogFragment() {
 
-    private lateinit var binding: PlayerBottomSheetBinding
+    private lateinit var binding: PlayerAddBottomSheetBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = PlayerBottomSheetBinding.inflate(inflater, container, false)
+        binding = PlayerAddBottomSheetBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -34,6 +34,7 @@ class PlayerBottomSheet : BottomSheetDialogFragment() {
             postPlayer(player)
         }
     }
+
 
 
     private fun postPlayer(player: Player) {

@@ -2,6 +2,7 @@ package br.com.douglas.esports
 
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import kotlin.String
 
 fun Fragment.getNavigationResult(key: String = "result") =
     findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<String>(key)

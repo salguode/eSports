@@ -9,7 +9,7 @@ class NetworkUtils {
 
         fun getRetrofitInstance() : Retrofit {
             return Retrofit.Builder()
-                .baseUrl("https://crudcrud.com/api/f7706a24839c4a7899cdc2aa0f013478/")
+                .baseUrl("https://crudcrud.com/api/acceb78889ec4435a38eaac20652a44f/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }

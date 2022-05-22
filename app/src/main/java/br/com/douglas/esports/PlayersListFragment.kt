@@ -1,7 +1,6 @@
 package br.com.douglas.esports
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import br.com.douglas.esports.databinding.FragmentPlayersListBinding
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,14 +18,16 @@ class PlayersListFragment : Fragment() {
 
     private lateinit var binding: FragmentPlayersListBinding
     private lateinit var adapter: PlayersListAdapter
-    val editCallBack : (Player) -> Unit = {player ->
+    val editCallBack : (Player) -> Unit = { player ->
         getNavigationResult()?.observe(viewLifecycleOwner){
             getData()
         }
        findNavController().navigate(PlayersListFragmentDirections.gotoPlayerEditBottomSheet(player))
     }
 
-
+    val deleteCallBack: (String) -> Unit =  {
+        deletePlayer(it)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,10 +39,8 @@ class PlayersListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = PlayersListAdapter(editCallBack)
+        adapter = PlayersListAdapter(editCallBack, deleteCallBack)
         binding.rvPlayerslist.adapter = adapter
-
-
 
         getData()
 
@@ -48,9 +48,29 @@ class PlayersListFragment : Fragment() {
             getNavigationResult()?.observe(viewLifecycleOwner){
                 getData()
             }
-            findNavController().navigate(R.id.goToPlayerBottomSheet)
+            findNavController().navigate(R.id.goToAddPlayerBottomSheet)
         }
 
+    }
+
+    private fun deletePlayer(playerId: String){
+
+        val retrofitClient = NetworkUtils
+            .getRetrofitInstance()
+        val endpoint = retrofitClient.create(PlayersEndpoint::class.java)
+
+        val callback = endpoint.deletePlayer(playerId)
+
+        callback.enqueue(object: Callback<ResponseBody>{
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                Toast.makeText(requireContext(), "Deletou", Toast.LENGTH_SHORT).show()
+                getData()
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Toast.makeText(requireContext(), "Error", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun getData() {

@@ -9,7 +9,8 @@ import br.com.douglas.esports.databinding.ItemPlayersListBinding
 
 
 class PlayersListAdapter(
-    val editCallBack: (Player) -> Unit
+    private val editCallBack: (Player) -> Unit,
+    private val deleteCallback: (String) -> Unit
 ) : ListAdapter<Player, PlayersListAdapter.PlayersViewHolder>(PlayersListAdapter) {
 
 
@@ -19,16 +20,17 @@ class PlayersListAdapter(
 
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(player: Player, editCallBack: (Player) -> Unit){
+        fun bind(player: Player, editCallBack: (Player) -> Unit, deleteCallback: (String) -> Unit){
             binding.txtPlayer.text = player.name
 
             binding.btnUpdatePlayer.setOnClickListener {
                 editCallBack(player)
             }
 
+            binding.btnDeletePlayer.setOnClickListener {
+                deleteCallback(player.id.toString())
+            }
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayersViewHolder {
@@ -38,7 +40,7 @@ class PlayersListAdapter(
 
     override fun onBindViewHolder(holder: PlayersViewHolder, position: Int) {
         val team = getItem(position)
-        holder.bind(team, editCallBack)
+        holder.bind(team, editCallBack, deleteCallback)
     }
 
     private companion object: DiffUtil.ItemCallback<Player>(){
