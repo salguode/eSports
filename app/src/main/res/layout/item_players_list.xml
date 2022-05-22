@@ -33,7 +33,7 @@
         android:id="@+id/btnDeletePlayer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Delete"
+        android:text="@string/player_delete_botton_sheet_button_text"
         android:backgroundTint="#bf0606"
         android:layout_marginEnd="16dp"
         app:layout_constraintStart_toEndOf="@id/btnUpdatePlayer"
