@@ -1,6 +1,7 @@
 package br.com.douglas.esports
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,13 @@ class PlayersListFragment : Fragment() {
 
     private lateinit var binding: FragmentPlayersListBinding
     private lateinit var adapter: PlayersListAdapter
+    val editCallBack : (Player) -> Unit = {player ->
+        getNavigationResult()?.observe(viewLifecycleOwner){
+            getData()
+        }
+       findNavController().navigate(PlayersListFragmentDirections.gotoPlayerEditBottomSheet(player))
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +37,7 @@ class PlayersListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = PlayersListAdapter()
+        adapter = PlayersListAdapter(editCallBack)
         binding.rvPlayerslist.adapter = adapter
 
 

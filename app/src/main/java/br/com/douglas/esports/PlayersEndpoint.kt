@@ -1,9 +1,9 @@
 package br.com.douglas.esports
 
+import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.Response
+import retrofit2.http.*
 
 interface PlayersEndpoint {
 
@@ -12,4 +12,7 @@ interface PlayersEndpoint {
 
     @POST("players")
     fun postPlayer(@Body player: Player): Call<Player>
+
+    @PUT("players/{id}")
+    fun putPlayer(@Path("id") playerId: String, @Body player: Player): Call<ResponseBody>
 }

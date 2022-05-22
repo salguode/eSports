@@ -2,8 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <EditText
         android:id="@+id/edtPlayer"
@@ -18,11 +17,11 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnAddPlayer"
+        android:id="@+id/btnUpdatePlayer"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/player_bottom_sheet_button"
+        android:text="Atualizar"
         app:rippleColor="@color/design_default_color_on_primary"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         app:backgroundTint="@color/design_default_color_primary"
@@ -32,8 +31,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         />
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

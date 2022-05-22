@@ -8,18 +8,26 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.douglas.esports.databinding.ItemPlayersListBinding
 
 
-class PlayersListAdapter : ListAdapter<Player, PlayersListAdapter.PlayersViewHolder>(PlayersListAdapter) {
+class PlayersListAdapter(
+    val editCallBack: (Player) -> Unit
+) : ListAdapter<Player, PlayersListAdapter.PlayersViewHolder>(PlayersListAdapter) {
 
 
 
     class PlayersViewHolder(
         private var  binding: ItemPlayersListBinding
+
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(player: Player){
+        fun bind(player: Player, editCallBack: (Player) -> Unit){
             binding.txtPlayer.text = player.name
 
+            binding.btnUpdatePlayer.setOnClickListener {
+                editCallBack(player)
+            }
+
         }
+
 
     }
 
@@ -30,7 +38,7 @@ class PlayersListAdapter : ListAdapter<Player, PlayersListAdapter.PlayersViewHol
 
     override fun onBindViewHolder(holder: PlayersViewHolder, position: Int) {
         val team = getItem(position)
-        holder.bind(team)
+        holder.bind(team, editCallBack)
     }
 
     private companion object: DiffUtil.ItemCallback<Player>(){

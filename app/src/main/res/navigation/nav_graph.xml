@@ -13,9 +13,22 @@
         <action
             android:id="@+id/goToPlayerBottomSheet"
             app:destination="@id/playerBottomSheet" />
+        <action
+            android:id="@+id/gotoPlayerEditBottomSheet"
+            app:destination="@id/playerEditBottomSheet" />
     </fragment>
     <dialog
         android:id="@+id/playerBottomSheet"
+        tools:layout="@layout/player_bottom_sheet"
         android:name="br.com.douglas.esports.PlayerBottomSheet"
         android:label="PlayerBottomSheet" />
+    <dialog
+        android:id="@+id/playerEditBottomSheet"
+        tools:layout="@layout/player_edit_bottom_sheet"
+        android:name="br.com.douglas.esports.PlayerEditBottomSheet"
+        android:label="PlayerEditBottomSheet" >
+        <argument
+            android:name="player"
+            app:argType="br.com.douglas.esports.Player" />
+    </dialog>
 </navigation>
