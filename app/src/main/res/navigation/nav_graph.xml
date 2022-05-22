@@ -11,16 +11,16 @@
         android:label="fragment_players_list"
         tools:layout="@layout/fragment_players_list" >
         <action
-            android:id="@+id/goToPlayerBottomSheet"
-            app:destination="@id/playerBottomSheet" />
+            android:id="@+id/goToAddPlayerBottomSheet"
+            app:destination="@id/addPlayerBottomSheet" />
         <action
             android:id="@+id/gotoPlayerEditBottomSheet"
             app:destination="@id/playerEditBottomSheet" />
     </fragment>
     <dialog
-        android:id="@+id/playerBottomSheet"
-        tools:layout="@layout/player_bottom_sheet"
-        android:name="br.com.douglas.esports.PlayerBottomSheet"
+        android:id="@+id/addPlayerBottomSheet"
+        tools:layout="@layout/player_add_bottom_sheet"
+        android:name="br.com.douglas.esports.PlayerAddBottomSheet"
         android:label="PlayerBottomSheet" />
     <dialog
         android:id="@+id/playerEditBottomSheet"

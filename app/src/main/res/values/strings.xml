@@ -2,7 +2,9 @@
     <string name="app_name">eSports</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="player_bottom_sheet_button">Adicionar</string>
     <string name="player_add_hint">jogador</string>
     <string name="player_edit_botton_sheet_button_text">Editar</string>
+    <string name="player_update_button">Atualizar</string>
+    <string name="player_delete_botton_sheet_button_text">Delete</string>
+    <string name="player_add_bottom_sheet_text">ADICIONAR</string>
 </resources>

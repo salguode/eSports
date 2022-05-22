@@ -1,9 +1,9 @@
 package br.com.douglas.esports
 
 import android.os.Parcelable
-import android.util.Log
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
+import kotlin.String
 
 @Parcelize
 data class Player(

@@ -2,7 +2,6 @@ package br.com.douglas.esports
 
 import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.Response
 import retrofit2.http.*
 
 interface PlayersEndpoint {
@@ -15,4 +14,7 @@ interface PlayersEndpoint {
 
     @PUT("players/{id}")
     fun putPlayer(@Path("id") playerId: String, @Body player: Player): Call<ResponseBody>
+
+    @DELETE("players/{id}")
+    fun deletePlayer(@Path("id") playerId: String): Call<ResponseBody>
 }
