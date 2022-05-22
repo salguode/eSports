@@ -37,7 +37,7 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_playersListFragment"
+            android:id="@+id/goToPlayersListFragment"
             app:destination="@id/goToPlayers" />
     </fragment>
 </navigation>
