@@ -25,11 +25,11 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnTeam.setOnClickListener {
-            findNavController().navigate(R.id.goToTeams)
+            findNavController().navigate(MainFragmentDirections.goToTeams())
         }
 
         binding.btnPlayers.setOnClickListener {
-            findNavController().navigate(R.id.goToPlayers)
+            findNavController().navigate(MainFragmentDirections.goToPlayers())
         }
     }
 }
