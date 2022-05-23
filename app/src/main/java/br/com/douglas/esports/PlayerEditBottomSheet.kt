@@ -43,7 +43,7 @@ class PlayerEditBottomSheet : BottomSheetDialogFragment() {
 
     }
 
-    private fun putPlayer(playerId: String?, player: Player) {
+    private fun putPlayer(playerId: Int?, player: Player) {
         val retrofitClient = NetworkUtils
             .getRetrofitInstance()
 
