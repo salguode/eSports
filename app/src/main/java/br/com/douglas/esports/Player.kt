@@ -7,8 +7,8 @@ import kotlin.String
 
 @Parcelize
 data class Player(
-    @SerializedName("playerName")
+    @SerializedName("name")
     val name: String,
-    @SerializedName("_id")
-    val id: String? = null
+    @SerializedName("id")
+    val id: Int? = null
 ): Parcelable
