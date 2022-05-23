@@ -37,7 +37,15 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/goToPlayersListFragment"
+            android:id="@+id/goToPlayers"
             app:destination="@id/goToPlayers" />
+        <action
+            android:id="@+id/goToTeams"
+            app:destination="@id/goToTeams" />
     </fragment>
+    <fragment
+        android:id="@+id/goToTeams"
+        android:name="br.com.douglas.esports.TeamScreenFragment"
+        android:label="fragment_team_screen"
+        tools:layout="@layout/fragment_team_screen" />
 </navigation>

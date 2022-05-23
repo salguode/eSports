@@ -24,8 +24,12 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.btnTeam.setOnClickListener {
+            findNavController().navigate(MainFragmentDirections.goToTeams())
+        }
+
         binding.btnPlayers.setOnClickListener {
-            findNavController().navigate(R.id.goToPlayers)
+            findNavController().navigate(MainFragmentDirections.goToPlayers())
         }
     }
 }
