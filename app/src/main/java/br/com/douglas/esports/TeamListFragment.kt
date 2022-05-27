@@ -5,17 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import br.com.douglas.esports.databinding.FragmentTeamListBinding
 
 
-class TeamScreenFragment : Fragment() {
+class TeamListFragment : Fragment() {
 
+    private lateinit var binding: FragmentTeamListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_team_screen, container, false)
+        binding = FragmentTeamListBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
 
