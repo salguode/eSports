@@ -10,5 +10,7 @@ data class Player(
     @SerializedName("name")
     val name: String,
     @SerializedName("id")
-    val id: Int? = null
+    val id: Int? = null,
+    @SerializedName("team")
+    val team: Team? = null
 ): Parcelable

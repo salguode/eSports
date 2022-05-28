@@ -9,17 +9,12 @@ import br.com.douglas.esports.databinding.ItemTeamListBinding
 
 class TeamListAdapter: ListAdapter<Team, TeamListAdapter.TeamViewHolder>(TeamListAdapterCallBack()) {
 
-
-
     class TeamViewHolder(
        private var binding: ItemTeamListBinding
 
         ): RecyclerView.ViewHolder(binding.root) {
         fun bind(team: Team){
-            val mockTeam = Team.getMockTeam().toString()
-            binding.txtTeam.text = mockTeam
-
-
+            binding.txtTeam.text = team.name
         }
 
     }
@@ -45,3 +40,4 @@ class TeamListAdapterCallBack: DiffUtil.ItemCallback<Team>() {
     }
 
 }
+

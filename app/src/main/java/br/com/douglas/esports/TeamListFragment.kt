@@ -11,6 +11,8 @@ import br.com.douglas.esports.databinding.FragmentTeamListBinding
 class TeamListFragment : Fragment() {
 
     private lateinit var binding: FragmentTeamListBinding
+    private lateinit var adapter: TeamListAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,6 +23,34 @@ class TeamListFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        adapter = TeamListAdapter()
+        binding.rvTeamList.adapter = adapter
+        adapter.submitList(getMockTeam())
+
+
+    }
+
+    fun getMockTeam()= listOf(
+        Team(
+            id = "555",
+            name = "Fallen"
+        ),
+        Team(
+            id = "789",
+            name = "Amendoim"
+        ),
+        Team(
+            id = "123",
+            name = "Sacy"
+        ),
+        Team(
+            id = "666",
+            name = "Aspas"
+        )
+    )
 
 
 }
