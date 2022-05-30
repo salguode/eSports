@@ -45,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/goToTeams"
-        android:name="br.com.douglas.esports.TeamScreenFragment"
+        android:name="br.com.douglas.esports.TeamListFragment"
         android:label="fragment_team_screen"
-        tools:layout="@layout/fragment_team_screen" />
+        tools:layout="@layout/fragment_team_list" />
 </navigation>
