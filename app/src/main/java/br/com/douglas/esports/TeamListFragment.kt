@@ -5,14 +5,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import br.com.douglas.esports.databinding.FragmentTeamListBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class TeamListFragment : Fragment() {
 
     private lateinit var binding: FragmentTeamListBinding
     private lateinit var adapter: TeamListAdapter
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,29 +31,30 @@ class TeamListFragment : Fragment() {
 
         adapter = TeamListAdapter()
         binding.rvTeamList.adapter = adapter
-        adapter.submitList(getMockTeam())
 
+        getTeams()
 
     }
 
-    fun getMockTeam()= listOf(
-        Team(
-            id = "555",
-            name = "Fallen"
-        ),
-        Team(
-            id = "789",
-            name = "Amendoim"
-        ),
-        Team(
-            id = "123",
-            name = "Sacy"
-        ),
-        Team(
-            id = "666",
-            name = "Aspas"
-        )
-    )
+    private fun getTeams(){
 
+        val retrofitClient = NetworkUtils
+            .getRetrofitInstance()
+
+        val endpoint = retrofitClient.create(TeamEndpoint::class.java)
+        val callback = endpoint.getTeam()
+
+        callback.enqueue(object : Callback<List<Team>> {
+
+            override fun onFailure(call: Call<List<Team>>, t: Throwable) {
+                Toast.makeText(context, t.message, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<List<Team>>, response: Response<List<Team>>) {
+                val playerList = response.body()
+                adapter.submitList(playerList)
+            }
+        })
+    }
 
 }
